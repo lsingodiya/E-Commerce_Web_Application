@@ -4,7 +4,7 @@ import "../Style/Cart.css";
 import NavBar from "../component/NavBar";
 function Cart() {
 
-  const [cartData, setCartData] = useState({ total: 0, Products: [] });
+  const [cartData, setCartData] = useState<any>({ total: 0, Products: [] });
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -89,7 +89,7 @@ function Cart() {
                   {cartData.Products.map((product: any) => (
                     <tr className="cart-table-content" key={product._id}>
                       <td className="cart-table-image-info">
-                        <img src={product.image} alt="Product Image"/>
+                        <img src={product.image} alt="Product Image" referrerPolicy="no-referrer" />
                       </td>
                       <td className="bold-text">{product.name}</td>
                       <td>{product.category}</td>

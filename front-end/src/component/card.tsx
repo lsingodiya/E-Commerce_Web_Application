@@ -10,7 +10,7 @@ interface Props {
 const Card = ({ name, price, imgsrc, category }: Props) => {
   return (
     <div className="item">
-      <img src={imgsrc} alt="" />
+      <img src={imgsrc} alt="" referrerPolicy="no-referrer" />
       <h4>{name}</h4>
       <p>{category}</p>
       <ul>

@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Fragment, useState, useEffect } from "react";
 
 function ProductInfo() {
-  const [inputValue, setInputValue] = useState({});
+  const [inputValue, setInputValue] = useState<any>({});
   const productID = localStorage.getItem("productID");
 
   useEffect(() => {
@@ -65,7 +65,7 @@ function ProductInfo() {
                   <div className="main-profile ">
                     <div className="row">
                       <div className="col-lg-4">
-                        <img src={inputValue.image} alt="" />
+                        <img src={inputValue.image} alt="" referrerPolicy="no-referrer" />
                       </div>
                       <div className="col-lg-4 align-self-center">
                         <div className="main-info header-text">

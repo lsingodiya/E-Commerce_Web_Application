@@ -12,7 +12,7 @@ function App() {
   return (
     <Fragment>
       <NavBar />
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Routes>
           <Route index path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />

@@ -13,6 +13,11 @@ function Register() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    if (password !== confpassword) {
+      alert("passwords doesn't match");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:3001/users", {
         method: "POST",
@@ -24,35 +29,19 @@ function Register() {
   
       if (response.ok) {
         console.log("Registered successful");
-        window.location.href = "/";
+        window.location.href = "/login";
       } else {
         console.log("Registered failed");
       }
     } catch (error) {
       console.error("Error:", error);
     }
-
-    if (password === confpassword) {
-      const data = {
-        email,
-        password,
-        firstName,
-        lastName,
-        age,
-        phone,
-        gender
-      };
-      const dataString = JSON.stringify(data);
-      window.location.href = "/login";
-    } else {
-      alert("passwords doesn't match");
-    }
   }
   return (
     <div className="bg-img">
       <div className="registerContent">
         <header>Register Form</header>
-        <form action="http://localhost:3001/users" method="post" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col">
               <h6>First name</h6>
@@ -179,16 +168,20 @@ function Register() {
             <div className="col">
               <div className="row">
                 <div className="col inline">
-                  <label className="radio-inline">
-                    <input type="text" name="gender"></input>
-                  </label>
+                  <div className="field">
+                    <select
+                      className="form-control"
+                      name="gender"
+                      required
+                      value={gender}
+                      onChange={(e) => setGender(e.target.value)}
+                    >
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
                 </div>
-                {/* <div className="col inline">
-                  <label className="radio-inline">
-                    <input type="radio" name="gender" value="female"/>
-                    Female
-                  </label>
-                </div> */}
               </div>
             </div>
           </div>

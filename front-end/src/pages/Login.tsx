@@ -22,10 +22,10 @@ function Login() {
         console.log("Login successful");
         // window.location.href = "/";
         response.json().then((data) => {
-          window.location.href = "/";
           console.log(data);
-          localStorage.setItem("token", data);
+          localStorage.setItem("token", data.token);
           localStorage.setItem("user", JSON.stringify(data.user));
+          window.location.href = "/";
         });
       } else {
         alert("password or email not correct");

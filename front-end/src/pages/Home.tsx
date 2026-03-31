@@ -4,10 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "../component/card";
 
 function Home() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any[]>([]);
   const [selectedOption, setSelectedOption] = useState("idle");
   const [searchKeyword, setSearchKeyword] = useState("");
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState<any[]>([]);
 
   useEffect(() => {
     fetchData();

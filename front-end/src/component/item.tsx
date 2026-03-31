@@ -16,7 +16,7 @@ const Item = ({ price, name, imgsrc }: Props) => {
           <div className="main-profile ">
             <div className="row">
               <div className="col-lg-4">
-                <img src={imgsrc}></img>
+                <img src={imgsrc} referrerPolicy="no-referrer"></img>
               </div>
               <div className="col-lg-4 ">
                 <div className="main-info header-text">
